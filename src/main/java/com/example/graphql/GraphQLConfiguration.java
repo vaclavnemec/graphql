@@ -2,7 +2,6 @@ package com.example.graphql;
 
 import com.example.graphql.book.AllBooksDataFetcher;
 import com.example.graphql.book.BookDataFetcher;
-import com.example.graphql.book.BookRepository;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
@@ -21,14 +20,12 @@ public class GraphQLConfiguration {
     private final Resource resource;
     private final AllBooksDataFetcher allBooksDataFetcher;
     private final BookDataFetcher bookDataFetcher;
-    private final BookRepository bookRepository;
 
     public GraphQLConfiguration(@Value("classpath:books.graphql") Resource resource,
-                                AllBooksDataFetcher allBooksDataFetcher, BookDataFetcher bookDataFetcher, BookRepository bookRepository) {
+                                AllBooksDataFetcher allBooksDataFetcher, BookDataFetcher bookDataFetcher) {
         this.resource = resource;
         this.allBooksDataFetcher = allBooksDataFetcher;
         this.bookDataFetcher = bookDataFetcher;
-        this.bookRepository = bookRepository;
     }
 
     @Bean
